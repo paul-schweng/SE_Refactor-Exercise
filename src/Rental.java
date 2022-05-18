@@ -3,9 +3,9 @@ class Rental {
     private int daysRented;
 
 
-    public Rental(Movie newmovie, int newdaysRented) {
-        movie = newmovie;
-        daysRented = newdaysRented;
+    public Rental(Movie newMovie, int newDaysRented) {
+        movie = newMovie;
+        daysRented = newDaysRented;
     }
 
 
@@ -33,7 +33,7 @@ class Rental {
                 thisAmount += this.getDaysRented() * 3;
                 break;
 
-            case Movie.CHILDRENS:
+            case Movie.CHILDREN:
                 thisAmount += 1.5;
                 if (this.getDaysRented() > 3)
                     thisAmount += (this.getDaysRented() - 3) * 1.5;
