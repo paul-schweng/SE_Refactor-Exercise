@@ -8,17 +8,17 @@ class Customer {
 
     public Customer (String newname){
         name = newname;
-    };
+    }
 
 
     public void addRental(Rental arg) {
         rentals.addElement(arg);
-    };
+    }
 
 
     public String getName (){
         return name;
-    };
+    }
 
 
     public String statement() {
@@ -29,7 +29,7 @@ class Customer {
         result += "\t" + "Title" + "\t" + "\t" + "Days" + "\t" + "Amount" + "\n";
 
         while (enum_rentals.hasMoreElements()) {
-            double thisAmount = 0;
+            double thisAmount;
             Rental each = (Rental) enum_rentals.nextElement();
 
             //determine amounts for each line
@@ -43,13 +43,13 @@ class Customer {
                 frequentRenterPoints++;
 
             //show figures for this rental
-            result += "\t" + each.getMovie().getTitle()+ "\t" + "\t" + each.getDaysRented() + "\t" + String.valueOf(thisAmount) + "\n";
+            result += "\t" + each.getMovie().getTitle()+ "\t" + "\t" + each.getDaysRented() + "\t" + thisAmount + "\n";
             totalAmount += thisAmount;
         }
 
         //add footer lines
-        result += "Amount owed is " + String.valueOf(totalAmount) + "\n";
-        result += "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter points";
+        result += "Amount owed is " + totalAmount + "\n";
+        result += "You earned " + frequentRenterPoints + " frequent renter points";
 
         return result;
     }
