@@ -1,9 +1,8 @@
-import java.util.Enumeration;
-import java.util.Vector;
+import java.util.*;
 
 class Customer {
     private final String name;
-    private final Vector<Rental> rentals = new Vector<>();
+    private final List<Rental> rentals = new ArrayList<>();
 
 
     public Customer (String newName){
@@ -12,7 +11,7 @@ class Customer {
 
 
     public void addRental(Rental rental) {
-        rentals.addElement(rental);
+        rentals.add(rental);
     }
 
 
@@ -24,14 +23,14 @@ class Customer {
     public String generateRentalRecord() {
         double totalAmount = 0;
         int frequentRenterPoints = 0;
-        Enumeration enum_rentals = rentals.elements();
+        Iterator<Rental> rentalsIterator = rentals.iterator();
 
         String result = "Rental Record for " + this.getName() + "\n";
         result += "\t" + "Title" + "\t" + "\t" + "Days" + "\t" + "Amount" + "\n";
 
-        while (enum_rentals.hasMoreElements()) {
+        while (rentalsIterator.hasNext()) {
             double thisAmount;
-            Rental rental = (Rental) enum_rentals.nextElement();
+            Rental rental = rentalsIterator.next();
 
             //determine amounts for each line
             thisAmount = rental.amountFor();
