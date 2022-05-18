@@ -1,14 +1,14 @@
+import org.junit.Assert;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
 
 public class CustomerTest {
 
-    private Customer testCustomer = new Customer("Rick");
+    private final Customer testCustomer = new Customer("Rick");
 
     @Test
     public void testGetName(){
-        assertEquals("Rick", testCustomer.getName());
+        Assert.assertEquals("Rick", testCustomer.getName());
     }
 
     @Test
